@@ -1,7 +1,21 @@
+import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import WhyUs from "@/components/WhyUs";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Represented from "@/components/Represented";
+import Contact from "@/components/Contact";
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-2xl font-semibold">goals4players-web</h1>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Services />
+      <WhyUs />
+      <WhyChooseUs />
+      <Represented />
+      <Contact />
+    </>
   );
 }

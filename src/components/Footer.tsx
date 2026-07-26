@@ -8,14 +8,15 @@ export default function Footer() {
 
         <div className="flex items-center gap-6">
           <a
-            href="#"
+            href="https://www.instagram.com/goals4players?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram de Goals For Players"
             className="hover:text-foreground"
           >
             Instagram
           </a>
-          <a href="#" className="hover:text-foreground">
+          <a href="#contacto" className="hover:text-foreground">
             Contacto
           </a>
         </div>
