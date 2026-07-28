@@ -1,0 +1,34 @@
+<!doctype html>
+<!--
+  Este archivo NUNCA se visita ni se enlaza desde la web. Existe únicamente
+  para que Netlify detecte el formulario "contacto" en el HTML estático
+  durante el build (requisito de @opennextjs/netlify, sucesor de
+  @netlify/plugin-nextjs v5, que ya no permite detectar formularios
+  embebidos dentro de páginas renderizadas por React/Next.js).
+  El formulario real que ve el usuario vive en src/components/ContactForm.tsx
+  y envía sus datos mediante fetch a esta misma URL (/__forms.html).
+  Los nombres de campo deben coincidir exactamente con los de ese componente.
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Formularios (uso interno de Netlify)</title>
+  </head>
+  <body>
+    <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contacto" />
+      <input name="bot-field" />
+      <input name="nombre" type="text" />
+      <input name="email" type="email" />
+      <input name="telefono" type="tel" />
+      <select name="tipo-consulta">
+        <option value="Representación deportiva">Representación deportiva</option>
+        <option value="Carrera de fútbol en EE. UU.">Carrera de fútbol en EE. UU.</option>
+        <option value="Club o colaboración profesional">Club o colaboración profesional</option>
+        <option value="Otra consulta">Otra consulta</option>
+      </select>
+      <textarea name="mensaje"></textarea>
+      <input name="privacidad" type="checkbox" />
+    </form>
+  </body>
+</html>

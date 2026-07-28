@@ -16,20 +16,18 @@ const inputClass =
 
 const labelClass = "text-sm font-medium text-neutral-200";
 
-function encodeFormData(data: Record<string, string>): string {
-  return Object.keys(data)
-    .map(
-      (key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`,
-    )
-    .join("&");
-}
-
 /**
- * Formulario cableado para Netlify Forms: atributos data-netlify + campo
- * oculto form-name + honeypot, detectables por Netlify en el HTML estático
- * generado en el build. El envío real (fetch) solo funciona una vez
- * desplegado en Netlify; en local devolverá error, que es el comportamiento
- * correcto (no se simula un envío que no existe).
+ * Formulario cableado para Netlify Forms. Con @opennextjs/netlify
+ * (sucesor de @netlify/plugin-nextjs v5) Netlify ya no puede detectar
+ * formularios embebidos en páginas renderizadas por React/Next.js, así
+ * que la detección ocurre en un archivo HTML estático aparte
+ * (public/__forms.html, con el mismo name="contacto" y los mismos campos).
+ * Este componente ya no lleva data-netlify/netlify-honeypot (serían
+ * inertes aquí); solo conserva name/form-name para que el payload enviado
+ * se asocie al formulario ya detectado. El envío real (fetch a
+ * /__forms.html) solo funciona una vez desplegado en Netlify; en local
+ * devolverá error, que es el comportamiento correcto (no se simula un
+ * envío que no existe).
  */
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -50,18 +48,18 @@ export default function ContactForm() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const payload: Record<string, string> = {};
+    const params = new URLSearchParams();
     formData.forEach((value, key) => {
-      payload[key] = String(value);
+      params.append(key, String(value));
     });
 
     setStatus("submitting");
 
     try {
-      const response = await fetch("/", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodeFormData(payload),
+        body: params.toString(),
       });
 
       if (response.ok) {
@@ -79,8 +77,6 @@ export default function ContactForm() {
     <form
       name="contacto"
       method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
     >

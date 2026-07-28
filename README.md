@@ -39,6 +39,15 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 El formulario de contacto de la Home (`name="contacto"`) se envía mediante **Netlify Forms** (almacenamiento nativo, sin backend propio). Tras cada envío verificado por Netlify, la función `netlify/functions/submission-created.ts` se ejecuta automáticamente (es el nombre reservado que Netlify invoca para *cualquier* envío de formulario del sitio; la función filtra internamente por `form_name === "contacto"`) y envía un correo de confirmación mediante **Resend**.
 
+### 0. Detección del formulario con @opennextjs/netlify (Next.js Runtime v5)
+
+Desde la v5 de `@netlify/plugin-nextjs` (hoy mantenido como `@opennextjs/netlify`), Netlify **ya no puede detectar formularios embebidos en páginas renderizadas por React/Next.js** — solo escanea HTML verdaderamente estático generado en el build. Por eso el proyecto usa el patrón oficial recomendado:
+
+- **`public/__forms.html`**: un archivo HTML estático (nunca visitado por usuarios reales) que declara el formulario `contacto` con `data-netlify="true"`, el honeypot y todos los campos, exactamente con los mismos `name` que el formulario real. Es lo único que Netlify necesita para registrar el formulario en el build.
+- **`src/components/ContactForm.tsx`**: sigue siendo el formulario real que ve el usuario, pero ya no lleva `data-netlify`/`netlify-honeypot` (serían inertes en una página React). Al enviarse, hace `fetch("/__forms.html", { method: "POST", ... })` con los mismos campos — Netlify intercepta ese POST porque el formulario `contacto` ya fue detectado en el build.
+- Si algún campo cambia de nombre en `ContactForm.tsx`, hay que actualizar `public/__forms.html` en paralelo para que ambos coincidan.
+- La función `submission-created.ts` no necesita ningún cambio: se dispara igual, independientemente de cómo se haya detectado el formulario.
+
 ### 1. Variables de entorno necesarias
 
 | Variable | Uso |
