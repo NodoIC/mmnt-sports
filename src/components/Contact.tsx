@@ -51,7 +51,7 @@ export default function Contact() {
           >
             <a
               href="mailto:info@goals4players.com"
-              className="inline-flex items-center gap-3 text-base font-semibold text-white transition-colors hover:text-orange-400"
+              className="inline-flex items-center gap-3 rounded-sm text-base font-semibold text-white transition-colors hover:text-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram de Goals For Players"
-              className="inline-flex items-center gap-3 text-base font-semibold text-white transition-colors hover:text-orange-400"
+              className="inline-flex items-center gap-3 rounded-sm text-base font-semibold text-white transition-colors hover:text-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

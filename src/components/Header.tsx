@@ -62,10 +62,10 @@ export default function Header() {
           : "border-b border-transparent bg-white/70 dark:bg-black/70"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-6 py-4">
         <Link
           href="/"
-          className="flex items-center"
+          className="flex items-center rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label="Goals For Players — Inicio"
         >
           <Image
@@ -85,7 +85,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative py-1 text-[15px] font-medium whitespace-nowrap transition-colors duration-200 ${
+                className={`group relative rounded-sm py-1 text-[15px] font-medium whitespace-nowrap transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                   isActive
                     ? "text-orange-600"
                     : "text-foreground/80 hover:text-foreground"
@@ -105,7 +105,7 @@ export default function Header() {
 
         <Link
           href="#contacto"
-          className="hidden rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition-colors duration-200 hover:bg-neutral-800 dark:hover:bg-neutral-200 lg:inline-block"
+          className="hidden rounded-full bg-foreground px-5 py-2 text-sm font-semibold text-background transition-colors duration-200 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-200 lg:inline-block"
         >
           Contactar
         </Link>
@@ -115,7 +115,7 @@ export default function Header() {
           onClick={() => setIsMenuOpen((open) => !open)}
           aria-label="Abrir menú"
           aria-expanded={isMenuOpen}
-          className="inline-flex items-center justify-center rounded-md p-2 lg:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 lg:hidden"
         >
           <span className="sr-only">Abrir menú</span>
           <div className="flex h-5 w-6 flex-col justify-between">
@@ -147,7 +147,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`rounded-md px-2 py-2 text-[15px] font-medium transition-colors hover:bg-black/5 dark:hover:bg-white/5 ${
+                className={`rounded-md px-2 py-2 text-[15px] font-medium transition-colors hover:bg-black/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-white/5 ${
                   isActive ? "text-orange-600" : "text-foreground/80"
                 }`}
               >
@@ -158,7 +158,7 @@ export default function Header() {
           <Link
             href="#contacto"
             onClick={() => setIsMenuOpen(false)}
-            className="mt-2 rounded-full bg-foreground px-5 py-2 text-center text-sm font-semibold text-background transition-colors duration-200 hover:bg-neutral-800 dark:hover:bg-neutral-200"
+            className="mt-2 rounded-full bg-foreground px-5 py-2 text-center text-sm font-semibold text-background transition-colors duration-200 hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-200"
           >
             Contactar
           </Link>

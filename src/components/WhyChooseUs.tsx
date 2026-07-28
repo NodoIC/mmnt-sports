@@ -49,7 +49,7 @@ export default function WhyChooseUs() {
   return (
     <section id="por-que-elegirnos" className="scroll-mt-24 bg-orange-50">
       <div className="mx-auto w-full max-w-[1280px] px-6 py-14 sm:px-10 sm:py-16">
-        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.3em] text-orange-700">
+        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.35em] text-orange-700">
           Diferenciales
         </p>
 
@@ -75,14 +75,14 @@ export default function WhyChooseUs() {
               className="animate-fade-in-up flex flex-col items-start gap-3"
               style={{ animationDelay: `${160 + index * 80}ms` }}
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-orange-500/15">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-orange-500/15">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={1.5}
-                  className="h-5 w-5 text-orange-600"
+                  className="h-6 w-6 text-orange-600"
                   aria-hidden
                 >
                   {reason.icon}

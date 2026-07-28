@@ -60,7 +60,7 @@ export default function RepresentedGallery({ photos }: { photos: string[] }) {
             type="button"
             onClick={() => setExpanded((value) => !value)}
             aria-expanded={expanded}
-            className="hover-lift inline-flex items-center gap-2 rounded-full border border-neutral-300 px-6 py-2.5 text-sm font-semibold text-neutral-900 transition-colors hover:border-orange-500 hover:text-orange-700"
+            className="hover-lift inline-flex items-center gap-2 rounded-full border border-neutral-300 px-6 py-2.5 text-sm font-semibold text-neutral-900 transition-colors hover:border-orange-500 hover:text-orange-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           >
             {expanded ? "Mostrar menos" : "Ver todos los representados"}
           </button>

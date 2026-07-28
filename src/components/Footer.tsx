@@ -3,7 +3,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-black/10 dark:border-white/10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-6 py-8 text-sm text-foreground/70 sm:flex-row sm:justify-between">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-4 px-6 py-8 text-sm text-foreground/70 sm:flex-row sm:justify-between">
         <p>© {year} Goals For Players. Todos los derechos reservados.</p>
 
         <div className="flex items-center gap-6">
@@ -12,11 +12,14 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram de Goals For Players"
-            className="hover:text-foreground"
+            className="rounded-sm hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           >
             Instagram
           </a>
-          <a href="#contacto" className="hover:text-foreground">
+          <a
+            href="#contacto"
+            className="rounded-sm hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+          >
             Contacto
           </a>
         </div>

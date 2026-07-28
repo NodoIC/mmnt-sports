@@ -30,7 +30,7 @@ export default function Hero() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgba(0,0,0,0.25),rgba(0,0,0,0.55)_55%,rgba(0,0,0,0.92))]"
       />
 
-      <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-16 px-6 py-28 sm:px-10 lg:grid-cols-2 lg:gap-12 lg:py-32">
+      <div className="relative mx-auto grid w-full max-w-[1280px] grid-cols-1 items-center gap-16 px-6 py-28 sm:px-10 lg:grid-cols-2 lg:gap-12 lg:py-32">
         {/* Columna izquierda: contenido */}
         <div className="flex flex-col items-start">
           <div
@@ -72,7 +72,7 @@ export default function Hero() {
           >
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-black shadow-lg shadow-orange-500/25 transition-all hover:bg-orange-400 hover:shadow-orange-500/35 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-black shadow-lg shadow-orange-500/25 transition-[background-color,box-shadow,transform] duration-200 hover:bg-orange-400 hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@ export default function Hero() {
             </a>
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30 hover:bg-white/5 active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-[border-color,background-color,transform] duration-200 hover:border-white/30 hover:bg-white/5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               Escríbenos
               <svg
@@ -123,7 +123,7 @@ export default function Hero() {
 
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-8 flex animate-bounce justify-center text-orange-300/60"
+        className="absolute inset-x-0 bottom-8 flex animate-float-subtle justify-center text-orange-300/60"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -208,7 +208,7 @@ export default function Services() {
 
             <a
               href="#contacto"
-              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-orange-400 active:scale-[0.98] sm:w-auto sm:self-start"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-black transition-[background-color,transform] duration-200 hover:bg-orange-400 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 sm:w-auto sm:self-start"
             >
               Solicitar representación
             </a>

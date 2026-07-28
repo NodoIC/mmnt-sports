@@ -43,7 +43,7 @@ export default function Represented() {
       />
 
       <div className="mx-auto w-full max-w-[1280px] px-6 py-14 sm:px-10 sm:py-16">
-        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.3em] text-orange-700">
+        <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.35em] text-orange-700">
           Nuestros jugadores
         </p>
 
