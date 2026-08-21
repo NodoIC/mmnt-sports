@@ -9,18 +9,18 @@ type PlayerSlot = {
 };
 
 const PRIMARY_SLOT: PlayerSlot = {
-  file: "player-01.jpg",
-  alt: "Jugador representado por Goals For Players",
+  file: "player-01.png",
+  alt: "Jugador representado por MMNT Sports",
 };
 
 const SECONDARY_SLOT: PlayerSlot = {
-  file: "player-02.jpg",
-  alt: "Jugador representado por Goals For Players",
+  file: "player-02.png",
+  alt: "Jugador representado por MMNT Sports",
 };
 
 const TERTIARY_SLOT: PlayerSlot = {
-  file: "player-03.jpg",
-  alt: "Jugador representado por Goals For Players",
+  file: "player-03.png",
+  alt: "Jugador representado por MMNT Sports",
 };
 
 // Máscara radial: desvanece el borde de cada foto hacia el fondo, en vez de
@@ -46,7 +46,7 @@ function playerImageExists(fileName: string): boolean {
 
 function PlaceholderGlyph() {
   return (
-    <div className="flex h-full w-full items-center justify-center bg-white/[0.04]">
+    <div className="flex h-full w-full items-center justify-center bg-mmnt-offwhite/[0.04]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -132,7 +132,7 @@ export default function HeroPlayersShowcase() {
     <div className="relative flex items-center justify-center">
       <div
         aria-hidden
-        className="absolute h-72 w-72 rounded-full bg-orange-600/[0.08] blur-3xl sm:h-96 sm:w-96"
+        className="absolute h-72 w-72 rounded-full bg-mmnt-signal/[0.08] blur-3xl sm:h-96 sm:w-96"
       />
 
       <div className="relative h-[440px] w-[280px] sm:h-[480px] sm:w-[400px] lg:h-[520px] lg:w-[460px]">

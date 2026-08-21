@@ -1,22 +1,39 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Tokens de marca MMNT SPORTS. Fuente única de verdad para los
+   cuatro colores de la identidad — ningún componente debe usar
+   un hex de marca suelto: siempre a través de estas variables
+   (o de las utilidades Tailwind `*-mmnt-*` que genera el bloque
+   @theme de abajo a partir de ellas). Ver informe de rebranding
+   cromático para el criterio de uso de cada uno.
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mmnt-carbon: #111111; /* Carbon Black — base dominante en secciones oscuras */
+  --mmnt-silver: #b8bcc2; /* Metal Silver — info secundaria, líneas, numeración técnica */
+  --mmnt-signal: #e7ff00; /* Signal Yellow — acento, tensión visual, nunca omnipresente */
+  --mmnt-offwhite: #f3f2ed; /* Off White — fondos claros y texto principal sobre Carbon */
+
+  --background: var(--mmnt-offwhite);
+  --foreground: var(--mmnt-carbon);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-mmnt-carbon: var(--mmnt-carbon);
+  --color-mmnt-silver: var(--mmnt-silver);
+  --color-mmnt-signal: var(--mmnt-signal);
+  --color-mmnt-offwhite: var(--mmnt-offwhite);
+  --font-sans: var(--font-inter);
+  /* Técnica — eyebrows, numeración 01/02/03, etiquetas, coordenadas de
+     Presencia. Nunca para párrafos largos. */
+  --font-mono: var(--font-roboto-mono);
+  /* Identidad de marca: solo para titulares/nombres puntuales marcados
+     explícitamente con `font-display` (Hero, "MMNT", títulos de Método
+     MMNT, nombres y claims de Modalidades) — el resto de la interfaz sigue
+     en --font-sans (Inter). No sustituye la tipografía base. */
+  --font-display: var(--font-space-grotesk);
 }
 
 body {
@@ -92,5 +109,123 @@ body {
 
   html {
     scroll-behavior: auto;
+  }
+}
+
+/* Flotación muy sutil de los tres círculos de Servicios. Misma forma de
+   movimiento, con amplitud reducida en móvil y mayor desde sm:, y una
+   duración/desfase ligeramente distinto por círculo para que no se muevan
+   sincronizados. */
+@keyframes float-circle-mobile {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes float-circle {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.animate-float-circle-a {
+  animation: float-circle-mobile 7s ease-in-out infinite alternate;
+}
+
+.animate-float-circle-b {
+  animation: float-circle-mobile 8.5s ease-in-out infinite alternate;
+  animation-delay: 0.4s;
+}
+
+.animate-float-circle-c {
+  animation: float-circle-mobile 6.5s ease-in-out infinite alternate;
+  animation-delay: 0.9s;
+}
+
+@media (min-width: 640px) {
+  .animate-float-circle-a {
+    animation-name: float-circle;
+  }
+  .animate-float-circle-b {
+    animation-name: float-circle;
+  }
+  .animate-float-circle-c {
+    animation-name: float-circle;
+  }
+}
+
+/* Pulso de resplandor casi imperceptible detrás del círculo central. */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 5s ease-in-out infinite;
+}
+
+/* Brillo fino que recorre la línea de conexión, con una pausa larga entre
+   pasadas (el recorrido ocupa solo el primer tercio del ciclo). */
+@keyframes line-shine {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  35% {
+    left: 100%;
+    opacity: 0.9;
+  }
+  40% {
+    opacity: 0;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+.animate-line-shine {
+  animation: line-shine 6s ease-in-out infinite;
+}
+
+/* Entrada del panel secundario del Header (escritorio): aparece desde su
+   esquina superior derecha con un desplazamiento y escalado mínimos. */
+@keyframes panel-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-panel-in {
+  animation: panel-in 0.16s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-circle-a,
+  .animate-float-circle-b,
+  .animate-float-circle-c,
+  .animate-pulse-glow,
+  .animate-line-shine,
+  .animate-panel-in {
+    animation: none !important;
   }
 }

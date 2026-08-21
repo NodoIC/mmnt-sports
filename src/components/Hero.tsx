@@ -1,10 +1,11 @@
-import HeroPlayersShowcase from "@/components/HeroPlayersShowcase";
+import HeroBrandShowcase from "@/components/HeroBrandShowcase";
+// import HeroPlayersShowcase from "@/components/HeroPlayersShowcase"; // versión anterior conservada para comparar; ver nota más abajo.
 
 export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate flex min-h-[90svh] scroll-mt-24 items-center overflow-hidden bg-neutral-950"
+      className="relative isolate flex min-h-[90svh] scroll-mt-24 items-center overflow-hidden bg-mmnt-carbon"
     >
       {/* Textura deportiva sutil (líneas de campo) */}
       <div
@@ -12,16 +13,19 @@ export default function Hero() {
         className="absolute inset-0 -z-30 bg-[repeating-linear-gradient(120deg,rgba(255,255,255,0.045)_0px,rgba(255,255,255,0.045)_1px,transparent_1px,transparent_80px)]"
       />
 
-      {/* Resplandor naranja controlado, superior izquierda */}
+      {/* Iluminación ambiental muy contenida en Signal Yellow — nada de
+          glow neón: es apenas perceptible, solo aporta profundidad. */}
       <div
         aria-hidden
-        className="absolute -left-32 -top-32 -z-20 h-[32rem] w-[32rem] rounded-full bg-orange-600/15 blur-3xl"
+        className="absolute -left-32 -top-32 -z-20 h-[32rem] w-[32rem] rounded-full bg-mmnt-signal/[0.06] blur-3xl"
       />
 
-      {/* Degradado radial de profundidad */}
+      {/* Degradado radial de profundidad: Signal Yellow apenas perceptible
+          arriba, Metal Silver aún más tenue abajo — evita que todo el
+          ambiente dependa del amarillo. */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_top,_rgba(249,115,22,0.14),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(234,88,12,0.1),_transparent_55%)]"
+        className="absolute inset-0 -z-20 bg-[radial-gradient(ellipse_at_top,_rgba(231,255,0,0.05),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(184,188,194,0.07),_transparent_55%)]"
       />
 
       {/* Viñeta oscura para dar profundidad y contraste */}
@@ -37,21 +41,38 @@ export default function Hero() {
             className="animate-fade-in-up flex items-center gap-3"
             style={{ animationDelay: "0ms" }}
           >
-            <span aria-hidden className="h-px w-8 bg-orange-500/60" />
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-orange-400">
-              Goals4Players
+            <span aria-hidden className="h-px w-8 bg-mmnt-silver/60" />
+            <p className="font-mono text-xs font-medium uppercase tracking-[0.35em] text-mmnt-silver">
+              MMNT Sports
             </p>
           </div>
 
-          <h1
-            className="animate-fade-in-up mt-7 text-5xl font-extrabold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl"
-            style={{ animationDelay: "120ms" }}
-          >
-            Take the Chance
+          {/* Una sola composición tipográfica (font-display, Space
+              Grotesk): "Take the" en semibold, tracking cerrado; "Chance."
+              en light, tracking abierto y escala algo mayor — el contraste
+              viene de peso/tracking/escala dentro de la misma familia, no
+              de mezclar dos tipografías distintas. */}
+          <h1 className="font-display mt-7">
+            <span
+              className="animate-fade-in-up block text-5xl leading-[0.95] font-semibold tracking-tight text-mmnt-offwhite uppercase sm:text-6xl lg:text-7xl"
+              style={{ animationDelay: "120ms" }}
+            >
+              Take the
+            </span>
+            <span
+              className="animate-fade-in-up mt-2 block font-light tracking-[0.06em] text-mmnt-signal uppercase"
+              style={{
+                animationDelay: "220ms",
+                fontSize: "clamp(3rem, 9vw, 6.5rem)",
+                lineHeight: 0.95,
+              }}
+            >
+              Chance.
+            </span>
           </h1>
 
           <p
-            className="animate-fade-in-up mt-7 max-w-xl text-lg font-medium text-white/85 sm:text-xl"
+            className="animate-fade-in-up mt-7 max-w-xl text-lg font-medium text-mmnt-offwhite/85 sm:text-xl"
             style={{ animationDelay: "240ms" }}
           >
             Gestión integral de carreras futbolísticas: representación, formación,
@@ -59,7 +80,7 @@ export default function Hero() {
           </p>
 
           <p
-            className="animate-fade-in-up mt-4 max-w-md text-base text-white/55"
+            className="animate-fade-in-up mt-4 max-w-md text-base text-mmnt-silver"
             style={{ animationDelay: "340ms" }}
           >
             Acompañamos tu carrera futbolística de forma integral, del amateur a lo
@@ -72,7 +93,7 @@ export default function Hero() {
           >
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-black shadow-lg shadow-orange-500/25 transition-[background-color,box-shadow,transform] duration-200 hover:bg-orange-400 hover:shadow-orange-500/35 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-mmnt-signal px-8 py-3.5 text-sm font-semibold text-mmnt-carbon shadow-lg shadow-mmnt-signal/20 transition-[filter,box-shadow,transform] duration-200 hover:shadow-mmnt-signal/35 hover:brightness-110 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mmnt-signal"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +114,7 @@ export default function Hero() {
             </a>
             <a
               href="#contacto"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-[border-color,background-color,transform] duration-200 hover:border-white/30 hover:bg-white/5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-mmnt-silver/30 px-8 py-3.5 text-sm font-semibold text-mmnt-offwhite transition-[border-color,background-color,transform] duration-200 hover:border-mmnt-silver/50 hover:bg-mmnt-offwhite/5 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mmnt-signal"
             >
               Escríbenos
               <svg
@@ -117,13 +138,13 @@ export default function Hero() {
 
         {/* Columna derecha: composición fotográfica de jugadores */}
         <div className="flex items-center justify-center lg:justify-end">
-          <HeroPlayersShowcase />
+          <HeroBrandShowcase />
         </div>
       </div>
 
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-8 flex animate-float-subtle justify-center text-orange-300/60"
+        className="absolute inset-x-0 bottom-8 flex animate-float-subtle justify-center text-mmnt-silver/60"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

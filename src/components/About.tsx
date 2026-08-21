@@ -1,130 +1,122 @@
-import AboutVisual from "@/components/AboutVisual";
-
-const ABOUT_BLOCKS = [
+const PRINCIPLES = [
   {
-    title: "Equipo multidisciplinar",
-    text: "Especialistas en gestión deportiva, comunicación, marketing, derecho, preparación física, nutrición y psicología.",
+    n: "01",
+    word: "Cercanía",
+    text: "Conocemos al futbolista y estamos presentes en su día a día.",
   },
   {
-    title: "Colaboradores",
-    text: "Nuestros colaboradores son un pilar clave. Acompañamos al deportista en cada etapa con profesionalidad y compromiso.",
+    n: "02",
+    word: "Implicación",
+    text: "Cada carrera la asumimos como un proyecto compartido.",
   },
   {
-    title: "De amateur a profesional",
-    text: "Intermediación, representación y asesoramiento para alcanzar el máximo potencial y rendimiento.",
-  },
-];
-
-const CONCEPT_CARDS = [
-  {
-    title: "Intermediación y Representación",
-    text: "Negociación de contratos y acuerdos.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026M3.75 9.776A2.25 2.25 0 0 0 2.25 12v3.377c0 1.108.806 2.05 1.907 2.185 2.583.316 5.207.48 7.843.48s5.26-.164 7.843-.48c1.101-.135 1.907-1.077 1.907-2.185V12a2.25 2.25 0 0 0-1.5-2.224M3.75 9.776V9.75A2.25 2.25 0 0 1 6 7.5h12a2.25 2.25 0 0 1 2.25 2.25v.026M9 12.75h6"
-      />
-    ),
-  },
-  {
-    title: "Desarrollo y Formación Deportiva",
-    text: "Programas de tecnificación individual y colectiva.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 14.25 4.5 10.5 12 6.75l7.5 3.75L12 14.25Zm0 0v6.75m-7.5-3.879V16.5c0 .983 3.358 2.25 7.5 2.25s7.5-1.267 7.5-2.25v-3.129"
-      />
-    ),
-  },
-  {
-    title: "Comunicación, Marketing & Sponsoring",
-    text: "Gestión de redes y proyección de imagen.",
-    icon: (
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 1 1 0-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 0 1-1.44-4.282m3.102.069a18.03 18.03 0 0 1-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 0 1 8.835 2.535M10.34 6.66a23.847 23.847 0 0 0 8.835-2.535m0 0A23.74 23.74 0 0 0 18.795 3m.38 1.125a23.91 23.91 0 0 1 1.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 0 0 1.014-5.395m0-3.46c.495.413.811 1.035.811 1.73s-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 0 1 0 3.46"
-      />
-    ),
+    n: "03",
+    word: "Continuidad",
+    text: "El seguimiento no termina con una firma. Acompañamos cada etapa.",
   },
 ];
+
+/** Arco tipo saque de esquina: mismo detalle futbolístico abstracto que ya
+ * usaba AboutVisual, reducido aquí a marca de esquina discreta. */
+function CornerArc({ className }: { className: string }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 64 64"
+      className={className}
+    >
+      <path
+        d="M0 0 A 32 32 0 0 1 32 32"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
 
 export default function About() {
   return (
-    <section id="nosotros" className="scroll-mt-24 bg-white">
+    <section id="nosotros" className="relative scroll-mt-24 overflow-hidden bg-mmnt-offwhite">
       <div
         aria-hidden
-        className="mx-auto h-px w-24 bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"
+        className="mx-auto h-px w-24 bg-gradient-to-r from-transparent via-mmnt-carbon/25 to-transparent"
       />
 
-      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-1 items-center gap-16 px-6 py-24 sm:px-10 sm:py-28 lg:grid-cols-2 lg:gap-24 lg:py-36">
-        <div className="flex flex-col items-start">
-          <p className="animate-fade-in-up text-xs font-semibold uppercase tracking-[0.35em] text-orange-700">
+      {/* Detalles de marca: arcos de córner en las esquinas de la sección,
+          y un círculo discontinuo en rotación muy lenta como capa de
+          profundidad ambiental. Todo por debajo del 8% de opacidad: no
+          compiten con la tipografía. */}
+      <CornerArc className="pointer-events-none absolute -right-2 top-16 hidden h-24 w-24 text-mmnt-carbon/10 sm:block" />
+      <CornerArc className="pointer-events-none absolute -left-2 bottom-24 hidden h-24 w-24 rotate-180 text-mmnt-carbon/10 sm:block" />
+      <div
+        aria-hidden
+        className="animate-spin-slow pointer-events-none absolute right-[-6rem] top-1/2 hidden h-[26rem] w-[26rem] -translate-y-1/2 rounded-full border border-dashed border-mmnt-carbon/[0.08] lg:block"
+      />
+
+      <div className="relative mx-auto grid w-full max-w-[1280px] grid-cols-1 gap-16 px-6 py-24 sm:px-10 sm:py-28 lg:grid-cols-12 lg:gap-x-8 lg:py-36">
+        <div className="flex flex-col items-start lg:col-span-7">
+          <p className="font-mono animate-fade-in-up text-xs font-medium uppercase tracking-[0.35em] text-mmnt-carbon/60">
             Quiénes somos
           </p>
 
           <h2
-            className="animate-fade-in-up mt-6 text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl"
+            className="font-display animate-fade-in-up mt-6 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-mmnt-carbon sm:text-5xl lg:text-6xl"
             style={{ animationDelay: "80ms" }}
           >
-            Sobre Goals For Players
+            Una agencia construida alrededor del futbolista.
           </h2>
 
-          <div className="mt-12 flex flex-col gap-10">
-            {ABOUT_BLOCKS.map((block, index) => (
+          <p
+            className="animate-fade-in-up mt-8 max-w-xl text-lg leading-relaxed text-mmnt-carbon/80 sm:text-xl"
+            style={{ animationDelay: "160ms" }}
+          >
+            MMNT Sports nace con una forma diferente de entender la
+            representación: estar cerca, implicarnos y acompañar cada
+            decisión que puede marcar una carrera.
+          </p>
+
+          <p
+            className="animate-fade-in-up mt-5 max-w-lg text-base leading-relaxed text-mmnt-carbon/55"
+            style={{ animationDelay: "220ms" }}
+          >
+            No creemos en relaciones puntuales. Construimos vínculos a largo
+            plazo basados en la confianza, el conocimiento del futbolista y
+            un seguimiento continuo de su evolución.
+          </p>
+        </div>
+
+        <div className="flex flex-col lg:col-span-4 lg:col-start-9 lg:mt-20">
+          <div className="flex flex-col divide-y divide-mmnt-carbon/10 border-t border-mmnt-carbon/10 lg:border-t-0 lg:border-l lg:divide-y-0 lg:pl-10">
+            {PRINCIPLES.map((principle, index) => (
               <div
-                key={block.title}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${160 + index * 100}ms` }}
+                key={principle.word}
+                className="animate-fade-in-up relative py-7 first:pt-0 lg:py-8 lg:first:pt-0"
+                style={{ animationDelay: `${320 + index * 120}ms` }}
               >
-                <h3 className="text-base font-semibold text-neutral-900">
-                  {block.title}
-                </h3>
-                <p className="mt-2 max-w-lg text-base leading-relaxed text-neutral-600">
-                  {block.text}
+                <span
+                  aria-hidden
+                  className="font-mono pointer-events-none absolute -top-3 right-0 select-none text-6xl font-medium text-mmnt-signal/[0.09] sm:text-7xl"
+                >
+                  {principle.n}
+                </span>
+
+                <div className="relative flex items-center gap-3">
+                  <span
+                    aria-hidden
+                    className="h-px w-6 shrink-0 bg-gradient-to-r from-mmnt-carbon to-mmnt-carbon/20"
+                  />
+                  <h3 className="font-mono text-sm font-medium uppercase tracking-[0.08em] text-mmnt-carbon">
+                    {principle.word}
+                  </h3>
+                </div>
+
+                <p className="relative mt-2 max-w-[26ch] text-sm leading-relaxed text-mmnt-carbon/65">
+                  {principle.text}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-
-        <div
-          className="animate-fade-in-up flex items-center justify-center lg:justify-end"
-          style={{ animationDelay: "200ms" }}
-        >
-          <AboutVisual />
-        </div>
-      </div>
-
-      <div className="mx-auto w-full max-w-[1280px] border-t border-neutral-100 px-6 pb-24 sm:px-10 sm:pb-28 lg:pb-32">
-        <div className="grid grid-cols-1 divide-y divide-neutral-200 pt-16 sm:grid-cols-3 sm:divide-y-0 sm:divide-x">
-          {CONCEPT_CARDS.map((card, index) => (
-            <div
-              key={card.title}
-              className="animate-fade-in-up flex flex-col items-start gap-4 py-8 first:pt-0 sm:px-8 sm:py-0 sm:first:pl-0 sm:last:pr-0"
-              style={{ animationDelay: `${300 + index * 120}ms` }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                className="h-7 w-7 text-orange-600"
-                aria-hidden
-              >
-                {card.icon}
-              </svg>
-              <h3 className="text-base font-semibold text-neutral-900">
-                {card.title}
-              </h3>
-              <p className="text-sm leading-relaxed text-neutral-600">
-                {card.text}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

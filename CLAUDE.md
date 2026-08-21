@@ -1,14 +1,21 @@
 @AGENTS.md
 
-# Goals For Players — reglas del proyecto
+# MMNT Sports — reglas del proyecto
+
+La identidad actual de este proyecto es **MMNT SPORTS** (descriptor: *Talent
+Manager*). Nota histórica, solo para contexto: el proyecto arrancó como la
+web de la agencia "Goals For Players" / G4P y fue rebrandeado por completo;
+esa marca ya no existe en el producto y no debe usarse como referencia para
+ningún trabajo futuro salvo que se cite `CONTENT.md`/`CONTENT_AUDIT.md`
+explícitamente por su valor histórico (ver informes de rebranding).
 
 ## Alcance
-- Este proyecto consiste **únicamente** en reconstruir y mejorar la web pública de Goals For Players.
+- Este proyecto consiste **únicamente** en reconstruir y mejorar la web pública de MMNT Sports.
 - No crear documentos de estrategia, filosofía, marca, producto ni procesos internos.
 
 ## Contenido
 - No inventar servicios, datos, cifras, textos, jugadores, teléfonos, correos ni enlaces.
-- Todo el contenido debe proceder de la web actual de Goals For Players o de información que el usuario facilite expresamente.
+- Todo el contenido debe proceder de la web actual de MMNT Sports, del registro histórico de la agencia (previo al rebrand, documentado en `CONTENT.md`/`CONTENT_AUDIT.md`), o de información que el usuario facilite expresamente.
 
 ## Forma de trabajar
 - Trabajar mediante tareas pequeñas y revisables.

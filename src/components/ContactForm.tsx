@@ -6,15 +6,14 @@ type Status = "idle" | "submitting" | "success" | "error";
 
 const INQUIRY_TYPES = [
   "Representación deportiva",
-  "Carrera de fútbol en EE. UU.",
   "Club o colaboración profesional",
   "Otra consulta",
 ];
 
 const inputClass =
-  "w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-neutral-500 transition-colors focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500";
+  "w-full rounded-lg border border-mmnt-silver/20 bg-mmnt-offwhite/5 px-4 py-3 text-sm text-mmnt-offwhite placeholder:text-mmnt-silver/50 transition-colors focus:border-mmnt-signal focus:outline-none focus:ring-1 focus:ring-mmnt-signal";
 
-const labelClass = "text-sm font-medium text-neutral-200";
+const labelClass = "text-sm font-medium text-mmnt-offwhite/85";
 
 /**
  * Formulario cableado para Netlify Forms. Con @opennextjs/netlify
@@ -78,7 +77,7 @@ export default function ContactForm() {
       name="contacto"
       method="POST"
       onSubmit={handleSubmit}
-      className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+      className="flex flex-col gap-5 rounded-2xl border border-mmnt-silver/15 bg-mmnt-offwhite/[0.03] p-6 sm:p-8"
     >
       <input type="hidden" name="form-name" value="contacto" />
       <p className="hidden">
@@ -118,7 +117,7 @@ export default function ContactForm() {
 
         <div className="flex flex-col gap-2">
           <label htmlFor="telefono" className={labelClass}>
-            Teléfono <span className="text-neutral-500">(opcional)</span>
+            Teléfono <span className="text-mmnt-silver/60">(opcional)</span>
           </label>
           <input
             id="telefono"
@@ -165,12 +164,12 @@ export default function ContactForm() {
         />
       </div>
 
-      <label className="flex items-start gap-3 text-sm text-neutral-300">
+      <label className="flex items-start gap-3 text-sm text-mmnt-silver">
         <input
           type="checkbox"
           name="privacidad"
           required
-          className="mt-0.5 h-4 w-4 shrink-0 rounded border-white/30 bg-white/5 text-orange-500 focus:ring-1 focus:ring-orange-500"
+          className="mt-0.5 h-4 w-4 shrink-0 rounded border-mmnt-silver/40 bg-mmnt-offwhite/5 text-mmnt-signal focus:ring-1 focus:ring-mmnt-signal"
         />
         <span>
           Acepto la política de privacidad.
@@ -186,15 +185,15 @@ export default function ContactForm() {
         className="min-h-[1.5rem] outline-none"
       >
         {status === "success" && (
-          <p className="text-sm font-medium text-orange-400">
+          <p className="text-sm font-medium text-mmnt-signal">
             Hemos recibido tu solicitud. Te hemos enviado un correo de
             confirmación.
           </p>
         )}
         {status === "error" && (
           <p className="text-sm font-medium text-red-400">
-            No se ha podido enviar el mensaje. Inténtalo de nuevo o escríbenos
-            a info@goals4players.com.
+            No se ha podido enviar el mensaje. Inténtalo de nuevo en unos
+            minutos.
           </p>
         )}
       </div>
@@ -202,7 +201,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="inline-flex items-center justify-center rounded-full bg-orange-500 px-8 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-orange-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex items-center justify-center rounded-full bg-mmnt-signal px-8 py-3.5 text-sm font-semibold text-mmnt-carbon transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mmnt-signal disabled:cursor-not-allowed disabled:opacity-60"
       >
         {status === "submitting" ? "Enviando…" : "Enviar"}
       </button>

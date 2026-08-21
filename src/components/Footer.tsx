@@ -1,27 +1,38 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/10 dark:border-white/10">
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-4 px-6 py-8 text-sm text-foreground/70 sm:flex-row sm:justify-between">
-        <p>© {year} Goals For Players. Todos los derechos reservados.</p>
+    <footer className="border-t border-mmnt-silver/15 bg-mmnt-carbon">
+      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-4 px-6 py-8 text-sm sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center gap-2 sm:items-start">
+          <Image
+            src="/brand/08_logo_horizontal.png"
+            alt="MMNT Sports — Talent Manager"
+            width={705}
+            height={175}
+            className="h-7 w-auto"
+          />
+          <p className="font-mono text-xs text-mmnt-silver/60">
+            © {year} · Todos los derechos reservados.
+          </p>
+        </div>
 
         <div className="flex items-center gap-6">
           <a
-            href="https://www.instagram.com/goals4players?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram de Goals For Players"
-            className="rounded-sm hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            href="mailto:mmntsports@outlook.es"
+            className="rounded-sm text-mmnt-silver transition-colors hover:text-mmnt-signal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mmnt-signal"
           >
-            Instagram
+            mmntsports@outlook.es
           </a>
-          <a
-            href="#contacto"
-            className="rounded-sm hover:text-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+          <Link
+            href="/#contacto"
+            className="rounded-sm text-mmnt-silver transition-colors hover:text-mmnt-signal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-mmnt-signal"
           >
             Contacto
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

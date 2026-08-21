@@ -49,9 +49,9 @@ function safeSiteHost(siteUrl: string | undefined): string | null {
 function buildEmailContent(greeting: string, siteUrl: string | undefined) {
   const host = safeSiteHost(siteUrl);
   const footerHtml = host
-    ? `<p style="margin:24px 0 0;color:#a3a3a3;font-size:13px;line-height:1.5;">Goals For Players — <a href="${siteUrl}" style="color:#a3a3a3;">${host}</a></p>`
+    ? `<p style="margin:24px 0 0;color:#a3a3a3;font-size:13px;line-height:1.5;">MMNT Sports — <a href="${siteUrl}" style="color:#a3a3a3;">${host}</a></p>`
     : "";
-  const footerText = host ? `\n\nGoals For Players — ${host}` : "";
+  const footerText = host ? `\n\nMMNT Sports — ${host}` : "";
 
   const html = `<!doctype html>
 <html lang="es">
@@ -61,15 +61,15 @@ function buildEmailContent(greeting: string, siteUrl: string | undefined) {
         <td align="center">
           <table role="presentation" width="100%" style="max-width:480px;background-color:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e5e5;">
             <tr>
-              <td style="height:4px;background-color:#f97316;"></td>
+              <td style="height:4px;background-color:#e7ff00;"></td>
             </tr>
             <tr>
               <td style="padding:32px;">
                 <p style="margin:0 0 16px;color:#171717;font-size:16px;line-height:1.6;">${greeting}</p>
                 <p style="margin:0 0 16px;color:#171717;font-size:16px;line-height:1.6;">Hemos recibido correctamente tu solicitud de contacto.</p>
                 <p style="margin:0 0 16px;color:#171717;font-size:16px;line-height:1.6;">Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.</p>
-                <p style="margin:0 0 24px;color:#171717;font-size:16px;line-height:1.6;">Gracias por confiar en Goals For Players.</p>
-                <p style="margin:0;color:#171717;font-size:16px;line-height:1.6;">Un saludo,<br />Equipo Goals For Players</p>
+                <p style="margin:0 0 24px;color:#171717;font-size:16px;line-height:1.6;">Gracias por confiar en MMNT Sports.</p>
+                <p style="margin:0;color:#171717;font-size:16px;line-height:1.6;">Un saludo,<br />Equipo MMNT Sports</p>
                 ${footerHtml}
               </td>
             </tr>
@@ -86,10 +86,10 @@ Hemos recibido correctamente tu solicitud de contacto.
 
 Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.
 
-Gracias por confiar en Goals For Players.
+Gracias por confiar en MMNT Sports.
 
 Un saludo,
-Equipo Goals For Players${footerText}`;
+Equipo MMNT Sports${footerText}`;
 
   return { html, text };
 }
@@ -148,7 +148,7 @@ export const handler: Handler = async (event) => {
         from: fromEmail,
         to: (email as string).trim(),
         replyTo,
-        subject: "Hemos recibido tu solicitud | Goals For Players",
+        subject: "Hemos recibido tu solicitud | MMNT Sports",
         html,
         text,
       });

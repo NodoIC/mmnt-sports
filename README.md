@@ -53,9 +53,9 @@ Desde la v5 de `@netlify/plugin-nextjs` (hoy mantenido como `@opennextjs/netlify
 | Variable | Uso |
 |---|---|
 | `RESEND_API_KEY` | Clave de API de Resend. Nunca se expone al navegador (solo se usa dentro de la función, en el servidor). |
-| `CONTACT_FROM_EMAIL` | Remitente del correo de confirmación, p. ej. `Goals For Players <no-reply@goalsforplayers.com>`. |
-| `CONTACT_REPLY_TO_EMAIL` | Dirección a la que llegan las respuestas de quien reciba el correo, p. ej. `contacto@goalsforplayers.com`. |
-| `SITE_URL` | URL pública del sitio (`https://goalsforplayers.com`). Se usa solo como enlace de pie en el email; si falta, ese enlace simplemente se omite sin errores. |
+| `CONTACT_FROM_EMAIL` | Remitente del correo de confirmación. Debe usar un dominio verificado en Resend — `mmntsports@outlook.es` no sirve aquí (Outlook no es un dominio propio verificable). Placeholder hasta tener un dominio real: `MMNT Sports <no-reply@mmntsports.com>`. |
+| `CONTACT_REPLY_TO_EMAIL` | Dirección real confirmada a la que llegan las respuestas: `mmntsports@outlook.es`. |
+| `SITE_URL` | URL pública del sitio (`https://mmntsports.com`). Se usa solo como enlace de pie en el email; si falta, ese enlace simplemente se omite sin errores. |
 
 Ninguna de estas variables lleva el prefijo `NEXT_PUBLIC_`: son secretos/config de servidor y no deben llegar al navegador.
 
@@ -67,9 +67,9 @@ Ninguna de estas variables lleva el prefijo `NEXT_PUBLIC_`: son secretos/config 
 
 ### 3. Verificación del dominio en Resend
 
-`goalsforplayers.com` debe **verificarse en Resend** antes de poder enviar correos reales desde `no-reply@goalsforplayers.com`:
+El dominio real (`mmntsports.com` en los ejemplos de esta guía — sustitúyelo por el dominio verdadero de MMNT Sports) debe **verificarse en Resend** antes de poder enviar correos reales desde `no-reply@` ese dominio:
 
-1. En el panel de Resend, añade el dominio `goalsforplayers.com`.
+1. En el panel de Resend, añade el dominio real de MMNT Sports.
 2. Resend mostrará una serie de registros DNS (normalmente SPF, DKIM y a veces un registro de verificación adicional).
 3. Añade esos registros exactos en el proveedor DNS del dominio.
 4. Espera a que Resend marque el dominio como **verificado** antes de activar el envío real — mientras tanto, los envíos fallarán o quedarán limitados al dominio de pruebas de Resend (que no debe usarse en producción).
